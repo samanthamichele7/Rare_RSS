@@ -1,0 +1,12 @@
+html .rare-rss-list{margin:0; padding:0px;}
+#rare-logo {background-image: url(../Rare.png); background-repeat: no-repeat; background-position: center top; display:block; height:55px; text-indent:-9999px; -o-transition:.5s; -ms-transition:.5s; -moz-transition:.5s; -webkit-transition:.5s; transition:.5s; }
+#rare-logo:hover{background-image: url(../rare-hover.png);}
+.rare-rss-list{ font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;width:300px; list-style:none outside none; background-color:#efefef;color:#3E3E3E;border: 1px solid #D3CAD7;font-size: 13px; line-height: 17px !important;}
+.rare-rss-list li{border-bottom:1px solid #D3CAD7; padding:14px 7px; }
+.rare-rss-list li:first-child:hover{background-color: #efefef; border-left: 3px solid #efefef; padding-left: 7px;}
+.rare-rss-list li:nth-child(odd) { border-left: 3px solid #efefef; -o-transition:.5s; -ms-transition:.5s; -moz-transition:.5s; -webkit-transition:.5s; transition:.5s;}
+.rare-rss-list li:nth-child(even){ background-color: #e6e4e4; border-left: 3px solid #e6e4e4; -o-transition:.5s;-ms-transition:.5s;-moz-transition:.5s;-webkit-transition:.5s;transition:.5s;}
+.rare-rss-list li:last-child{border-bottom:none;}
+.rare-rss-list li:hover{background-color: white; border-left: #0077c8 3px solid;}
+.rare-rss-title a{font-weight:bold; color:#BE1E2D; text-decoration:none; -o-transition:.5s;-ms-transition:.5s;-moz-transition:.5s;-webkit-transition:.5s;transition:.5s; }
+.rare-rss-title a:hover{ color: black; }
