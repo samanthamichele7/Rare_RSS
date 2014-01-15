@@ -15,7 +15,7 @@
         var i;
         $("#" + id).empty().append('<img src="loader.gif" />');
         $.ajax({
-            url: "http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=" + def.count + "&output=json&q=" + encodeURIComponent(def.feed) + "&hl=en&callback=?",
+            url: "//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=" + def.count + "&output=json&q=" + encodeURIComponent(def.feed) + "&hl=en&callback=?",
             dataType: "json",
             success: function (data) {
                 $("#" + id).empty();
