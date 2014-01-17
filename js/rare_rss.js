@@ -27,7 +27,7 @@
                         s += '<div class="rare-rss-date">' + i.toLocaleDateString() + "</div>";
                     }
                 });
-                $("#" + id).append('<ul class="rare-rss-list"><li><a href="http://rare.us" title="Rare - Red is the Center" id="rare-logo">Rare</a></li>' + s + "</ul>");
+                $("#" + id).append('<ul class="rare-rss-list"><li><a href="http://rare.us" title="Rare - Red is the Center" id="rare-logo" target="' + def.newWindow + '">Rare</a></li>' + s + "</ul>");
             }
         });
     };
