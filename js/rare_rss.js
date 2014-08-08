@@ -1,34 +1,28 @@
 /* Rare RSS Javascript widget
-*  Author : Doejo / Samantha Geitz (samantha@doejo.com)
+*  Author : Doejo / Samantha Geitz (samantha@doejo.com) / Ilia Karasin (ilia@doejo.com)
 */
+google.load("feeds", "1");
 
-(function ($) {
-    $.fn.rareRSS = function (args) {
-        var def = $.extend({
-            feed: "http://rare.us/feed",
-            count: 5,
-            publishDate: true,
-            newWindow: "_blank"
-        }, args);
+function initialize() {
+	
+  var feed = new google.feeds.Feed("http://rare.us/feed/");
+	feed.setNumEntries(5);
 
-        var id = $(this).attr("id");
-        var i;
-        $("#" + id).empty().append('<img src="loader.gif" />');
-        $.ajax({
-            url: "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=" + def.count + "&output=json&q=" + encodeURIComponent(def.feed) + "&hl=en&callback=?",
-            dataType: "json",
-            success: function (data) {
-                $("#" + id).empty();
-                var s = "";
-                $.each(data.responseData.feed.entries, function (e, item) {
-                    s += '<li><div class="rare-rss-title"><a href="' + item.link + '" target="' + def.newWindow + '" >' + item.title + "</a></div>";
-                    if (def.publishDate) {
-                        i = new Date(item.publishedDate);
-                        s += '<div class="rare-rss-date">' + i.toLocaleDateString() + "</div>";
-                    }
-                });
-                $("#" + id).append('<ul class="rare-rss-list"><li><a href="http://rare.us" title="Rare - Red is the Center" id="rare-logo" target="' + def.newWindow + '">Rare</a></li>' + s + "</ul>");
-            }
-        });
-    };
-})(jQuery);
+  feed.load(function(result) {		
+    if (!result.error) {
+      var container = $('#rare-rss');
+			var s = "";
+			
+      for (var i = 0; i < result.feed.entries.length; i++) {
+        var entry = result.feed.entries[i];
+				var d = new Date(entry.publishedDate);
+				
+				s += '<li><div class="rare-rss-title"><a href="' + entry.link + '" target="_blank">' + entry.title + '</a></div><div class="rare-rss-date">' + d.toLocaleDateString() + '</div></li>';
+      }
+			
+			container.append('<ul class="rare-rss-list"><li><a href="http://rare.us" title="Rare - Red is the Center" id="rare-logo" target="_blank">Rare</a></li>' + s + '</ul>');
+    }
+  });
+}
+
+google.setOnLoadCallback(initialize);
