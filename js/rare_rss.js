@@ -5,7 +5,7 @@
 (function ($) {
     $.fn.rareRSS = function (args) {
         var def = $.extend({
-            feed: "http://rare.us/feed/?param=rare",
+            feed: "http://rare.us/feed",
             count: 5,
             publishDate: true,
             newWindow: "_blank"
